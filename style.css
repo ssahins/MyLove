@@ -6,6 +6,8 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;  /* telefonda sabit görünüm */
+    min-height: 100dvh;  /* tam ekran - mobilde beyaz alanı önler */
     text-align: center;
     padding: 50px 20px;
     margin: 0;
@@ -23,6 +25,8 @@ body {
     animation: fadeIn 1.2s ease;
     position: relative;
     z-index: 2;
+
+ 
 }
 
 h1 {
