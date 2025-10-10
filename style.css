@@ -1,4 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;500&display=swap');
+
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
 
 body {
     font-family: 'Dancing Script', cursive;
@@ -13,6 +20,19 @@ body {
     margin: 0;
     overflow-x: hidden;
 }
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255,182,193,0.3), rgba(255,240,245,0.5));
+    z-index: 0;
+   pointer-events: none;  /* Tıklamayı engellemesin */
+}
+
 
 .container {
     background-color: rgba(255, 255, 255, 0.88);
@@ -30,6 +50,7 @@ body {
 }
 
 h1 {
+    font-family: 'Dancing Script', cursive;
     color: #ff69b4;
     font-size: 2.5em;
     margin-bottom: 15px;
@@ -37,6 +58,7 @@ h1 {
 }
 
 p {
+    font-family: 'Poppins', sans-serif;
     margin: 12px 0;
     line-height: 1.5;
 }
@@ -53,6 +75,25 @@ p {
     color: #555;
     font-style: italic;
 }
+
+/* 💞 2. yıl dönümü yazısı */
+.anniversary-text {
+  display: inline-block;
+  background: linear-gradient(90deg, #ff69b4, #ffb6c1, #ff85c2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.5em;
+  font-weight: 700;
+  animation: pulse 2.5s infinite ease-in-out;
+  text-shadow: 0 0 8px rgba(255,105,180,0.4);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.9; }
+}
+
 
 /* Kalp animasyonu */
 .heart {
@@ -106,3 +147,31 @@ p {
         font-size: 1.1em;
     }
 }
+
+button {
+    background-color: #ff69b4;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    font-size: 1em;
+    transition: 0.3s ease;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #ff85c2;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255,105,180,0.6);
+}
+
+.love-message {
+    font-size: 1.1em;
+    color: ff69b4;
+    opacity:0;
+    animation: fadeIn 3s ease 1s forwards;
+}
+
+

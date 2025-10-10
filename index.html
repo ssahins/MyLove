@@ -15,11 +15,13 @@
         <p class="date-display" id="currentDate"></p>
         <p class="days-count" id="daysCount">0</p>
         <p class="anniversary-count" id="anniversaryCount"></p>
+        <p class="love-message">💌 Seninle her gün, bir öncekinden daha güzel 💌</p>
+
     </div>
 
    <!-- Arka plan müzik -->
 <audio id="bgMusic" loop>
-    <source src="./music.mp3" type="audio/mpeg" />
+    <source src="./music3.mp3" type="audio/mpeg" />
     Tarayıcınız ses öğesini desteklemiyor.
     
 </audio>
@@ -31,15 +33,21 @@
     <!-- Kalp animasyonu -->
     <script>
         // Kalp oluşturma
-        function createHeart() {
-            const heart = document.createElement("div");
-            heart.classList.add("heart");
-            heart.innerText = "❤️";
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.fontSize = (Math.random() * 10 + 15) + "px";
-            document.body.appendChild(heart);
-            setTimeout(() => heart.remove(), 6000);
-        }
+   function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerText = "❤️";
+    
+    const colors = ['#ff69b4', '#ff1493', '#ffb6c1', '#ff85a2'];
+    heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 10 + 15) + "px";
+    heart.style.animationDuration = (Math.random() * 3 + 4) + "s";  // hız farkı
+
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+}
+
 
         setInterval(createHeart, 800);
     </script>
@@ -70,20 +78,33 @@
         document.getElementById("currentDate").innerText = "Bugünün tarihi: " + formatDate(new Date());
         document.getElementById("daysCount").innerText = "İlişki süremiz: " + calculateDays() + " gün";
         document.getElementById("anniversaryCount").innerText = "2. yıl dönümümüze kalan gün: " + calculateAnniversaryCountdown() + " gün 🎉";
-    </script>
+   
+    const daysLeft = calculateAnniversaryCountdown();
+    document.getElementById("anniversaryCount").innerHTML = `
+      <span class="anniversary-text">
+        💞 2. Yıl Dönümümüze <strong>${daysLeft}</strong> Gün Kaldı! 🎉
+      </span>
+    `;
+   
+   
+   
+   </script>
 
  <script>
         const bgMusic = document.getElementById('bgMusic');
         const playBtn = document.getElementById('playBtn');
         const pauseBtn = document.getElementById('pauseBtn');
 
+
        playBtn.addEventListener('click', () => {
-    bgMusic.currentTime =50;  // 40. saniyeden başla
+     bgMusic.currentTime =46;  // 46. saniyeden başla
     bgMusic.play().then(() => {
+   
         playBtn.style.display = 'none';
         pauseBtn.style.display = 'inline-block';
     }).catch(error => {
         console.error("Müzik çalınamadı", error);
+        alert("Lütfen butona tekrar bas veya sesi aç");
     });
 });
 
@@ -93,6 +114,6 @@
             playBtn.style.display = 'inline-block';
         });
     </script>
-</script>
+      
 </body>
 </html>
