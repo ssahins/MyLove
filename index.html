@@ -55,7 +55,7 @@
     <!-- Tarih hesaplamaları -->
     <script>
         const startDate = new Date('2024-10-03T00:00:00');
-        const anniversaryDate = new Date('2026-10-03T00:00:00');
+        const anniversaryDate = new Date('2027-10-03T00:00:00');
 
         function calculateDays() {
             const today = new Date();
@@ -77,7 +77,7 @@
 
         document.getElementById("currentDate").innerText = "Bugünün tarihi: " + formatDate(new Date());
         document.getElementById("daysCount").innerText = "İlişki süremiz: " + calculateDays() + " gün";
-        document.getElementById("anniversaryCount").innerText = "2. yıl dönümümüze kalan gün: " + calculateAnniversaryCountdown() + " gün 🎉";
+        document.getElementById("anniversaryCount").innerText = "3. yıl dönümümüze kalan gün: " + calculateAnniversaryCountdown() + " gün 🎉";
    
     const daysLeft = calculateAnniversaryCountdown();
     document.getElementById("anniversaryCount").innerHTML = `
